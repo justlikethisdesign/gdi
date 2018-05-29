@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import DateCard from './components/DateCard/DateCard';
+
 class App extends Component {
     render() {
+
+        // Set the image details to use later
+        var image = { src: 'test.png', alt:'' };
+
         return (
             <div className='app'>
                 <header>
@@ -12,17 +18,9 @@ class App extends Component {
                     </div>
                 </header>
                 <div className='container'>
-                    <section className='add-item'>
-                        <form>
-                            <input type="text" name="username" placeholder="What's your name?" />
-                            <input type="text" name="currentItem" placeholder="What are you bringing?" />
-                            <button>Add Item</button>
-                        </form>
-                    </section>
                     <section className='display-item'>
                         <div className='wrapper'>
-                        <ul>
-                        </ul>
+                            <DateCard title="Best Date Ever" image = { image } />
                         </div>
                     </section>
                 </div>
@@ -30,6 +28,5 @@ class App extends Component {
         );
     }
 }
-export default App;
 
 export default App;
