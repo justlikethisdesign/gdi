@@ -1,32 +1,22 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 
-import DateCard from './components/DateCard/DateCard';
+import Home from './screens/Home';
+import DynamicPage from './screens/DynamicPage';
+import NoMatch from './screens/NoMatch';
 
-class App extends Component {
-    render() {
-
-        // Set the image details to use later
-        var image = { src: 'test.png', alt:'' };
-
-        return (
-            <div className='app'>
-                <header>
-                    <div className='wrapper'>
-                        <h1>GDI</h1>
-                    </div>
-                </header>
-                <div className='container'>
-                    <section className='display-item'>
-                        <div className='wrapper'>
-                            <DateCard title="Best Date Ever" image = { image } />
-                        </div>
-                    </section>
-                </div>
-            </div>
-        );
-    }
-}
+const App = () => {
+  return (
+    <Router>
+      <div>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/dynamic" component={DynamicPage} />
+          <Route component={NoMatch} />
+        </Switch>
+      </div>
+    </Router>
+  );
+};
 
 export default App;
